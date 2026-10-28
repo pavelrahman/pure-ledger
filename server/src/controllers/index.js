@@ -1,8 +1,8 @@
 //* Internal Imports *//
-import sampleController from "./sampleControllers.js";
+import userController from "./userControllers.js";
 
 const controllers = {
-  sampleController,
+  userController,
 };
 
 export default controllers;

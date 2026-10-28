@@ -1,13 +1,13 @@
 //* External Imports *//
 import "dotenv/config";
-import connectMongo from "./src/config/mongoDB.js";
+import connectDB from "./src/config/db.js";
 
 //* Internal Imports *//
 import app from "./src/app.js";
 
 const port = process.env.PORT || 5000;
 
-connectMongo().then(() => {
+connectDB().then(() => {
   app.listen(port, () => {
     console.log(`Server running on port ${port}`);
   });

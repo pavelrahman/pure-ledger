@@ -2,9 +2,9 @@
 import express from "express";
 
 //* Internal Imports *//
-import sampleRoutes from "./sampleRoutes.js";
+import userRoutes from "./userRoutes.js";
 
 const router = express.Router();
-router.use("/sample", sampleRoutes);
+router.use("/user", userRoutes);
 
 export default router;
