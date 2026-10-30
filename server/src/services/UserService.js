@@ -1,4 +1,4 @@
-import RepositoryFactory from "../repositories/repositoryFactory.js";
+import RepositoryFactory from "../repositories/RepositoryFactory.js";
 
 class UserService {
   constructor() {
