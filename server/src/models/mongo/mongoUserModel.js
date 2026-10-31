@@ -1,6 +1,11 @@
+//* External Imports *//
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
+//* Internal Imports *//
+import constants from "../../constants/appConstants.js";
+
+const { USER_ROLES, USER_STATUS } = constants;
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -34,10 +39,10 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: {
-        values: ["super_admin", "store_manager", "sales_staff"],
+        values: Object.values(USER_ROLES),
         message: "{VALUE} is not a valid role",
       },
-      default: "sales_staff",
+      default: USER_ROLES.SALES_STAFF,
     },
     storeId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -46,8 +51,8 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["active", "inactive", "suspended"],
-      default: "active",
+      enum: Object.values(USER_STATUS),
+      default: USER_STATUS.ACTIVE,
     },
     avatar: {
       type: String,
@@ -65,9 +70,9 @@ userSchema.pre("save", async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
-    next();
   } catch (error) {
-    next(error);
+    console.error("Password hashing error:", error);
+    throw error;
   }
 });
 
