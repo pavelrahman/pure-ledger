@@ -8,6 +8,15 @@ const { userController } = controllers;
 
 const router = express.Router();
 
-router.route("/").post(userController.createUser);
+router
+  .route("/")
+  .get(userController.getAllUser)
+  .post(userController.createUser);
+
+router
+  .route("/:id")
+  .get(userController.getUserById)
+  .patch(userController.updateUserById)
+  .delete(userController.deleteUserById);
 
 export default router;

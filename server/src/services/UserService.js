@@ -13,6 +13,18 @@ class UserService {
   async getAllUser() {
     return await this.userRepository.findAll();
   }
+
+  async getUserById(id) {
+    return await this.userRepository.findById(id);
+  }
+
+  async updateUserById(id, payload, options) {
+    return await this.userRepository.updateById(id, payload, options);
+  }
+
+  async deleteUserById(id) {
+    return await this.userRepository.deleteById(id);
+  }
 }
 
 export default new UserService();

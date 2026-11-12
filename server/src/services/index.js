@@ -1,8 +1,8 @@
 //* Internal Imports *//
-import userService from "./UserService.js";
+import UserService from "./UserService.js";
 
 const service = {
-  userService,
+  UserService,
 };
 
 export default service;

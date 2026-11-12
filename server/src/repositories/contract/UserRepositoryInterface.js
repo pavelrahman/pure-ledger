@@ -8,6 +8,12 @@ class UserRepositoryInterface {
   async findAll() {
     throw new Error("Method 'findAll()' must be implemented.");
   }
+  async updateById(id, payload, options = {}) {
+    throw new Error("Method 'updateById()' must be implemented.");
+  }
+  async deleteById(id, payload, options = {}) {
+    throw new Error("Method 'deleteById()' must be implemented.");
+  }
 }
 
 export default UserRepositoryInterface;
