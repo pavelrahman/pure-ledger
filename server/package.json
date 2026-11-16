@@ -9,7 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "production": "NODE_ENV=production nodemon server.js"
+    "production": "NODE_ENV=production nodemon server.js",
+    "seed": "node dev-data/seeders/index.js --seed",
+    "seed:delete": "node dev-data/seeders/index.js --delete"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

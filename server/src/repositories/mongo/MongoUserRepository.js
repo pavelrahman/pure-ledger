@@ -40,6 +40,10 @@ class MongoUserRepository extends UserRepositoryInterface {
       options,
     );
   }
+
+  async deleteAll() {
+    return MongoUserModel.deleteMany({});
+  }
 }
 
 export default MongoUserRepository;

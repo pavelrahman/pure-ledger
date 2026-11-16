@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "name": "Gazi A K M Siddique",
+      "email": "akmsiddique@gmail.com",
+      "password": "123456",
+      "phone": "01715424188",
+      "role": "sales_staff",
+      "status": "active",
+      "avatar": null
+    },
+    {
+      "name": "Gazi Mizanur Rahman",
+      "email": "pavelrahmanjava@gmail.com",
+      "password": "123456",
+      "phone": "01909657969",
+      "role": "sales_staff",
+      "status": "active",
+      "avatar": null
+    },
+    {
+      "name": "Gazi Mostafizur Rahman",
+      "email": "pealrahman49@gmail.com",
+      "password": "123456",
+      "phone": "01934350634",
+      "role": "sales_staff",
+      "status": "active",
+      "avatar": null
+    }
+  ]
+}
