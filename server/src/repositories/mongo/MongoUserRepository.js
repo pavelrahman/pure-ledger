@@ -1,21 +1,18 @@
 //* Internal Imports *//
-import contract from "../contract/index.js";
-import mongoModels from "../../models/mongo/index.js";
+import { User } from "../../models/mongo/mongoUserModel.js";
+import { UserRepositoryInterface } from "../contract/UserRepositoryInterface.js";
 
-const { MongoUserModel } = mongoModels;
-const { UserRepositoryInterface } = contract;
-
-class MongoUserRepository extends UserRepositoryInterface {
+export class MongoUserRepository extends UserRepositoryInterface {
   async create(data) {
-    return await MongoUserModel.create(data);
+    return await User.create(data);
   }
 
   async findById(id) {
-    return await MongoUserModel.findById(id);
+    return await User.findById(id);
   }
 
   async findAll() {
-    return await MongoUserModel.find();
+    return await User.find();
   }
 
   async updateById(id, payload, options = {}) {
@@ -24,7 +21,7 @@ class MongoUserRepository extends UserRepositoryInterface {
       runValidators: true,
       ...options,
     };
-    return await MongoUserModel.findByIdAndUpdate(id, payload, finalOptions);
+    return await User.findByIdAndUpdate(id, payload, finalOptions);
   }
 
   async deleteById(id) {
@@ -32,7 +29,7 @@ class MongoUserRepository extends UserRepositoryInterface {
       returnDocument: "after",
       runValidators: true,
     };
-    return await MongoUserModel.findByIdAndUpdate(
+    return await User.findByIdAndUpdate(
       id,
       {
         status: "inactive",
@@ -42,8 +39,6 @@ class MongoUserRepository extends UserRepositoryInterface {
   }
 
   async deleteAll() {
-    return MongoUserModel.deleteMany({});
+    return User.deleteMany({});
   }
 }
-
-export default MongoUserRepository;

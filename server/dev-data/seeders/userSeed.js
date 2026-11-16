@@ -3,9 +3,7 @@ import fs from "fs";
 import path from "path";
 
 //* Internal Imports *//
-import services from "../../src/services/index.js";
-
-const { UserService } = services;
+import { userService } from "../../src/services/UserService.js";
 
 const { users } = JSON.parse(
   fs.readFileSync(
@@ -15,16 +13,16 @@ const { users } = JSON.parse(
 );
 
 export async function seedUser() {
-  await UserService.deleteAllUser();
+  await userService.deleteAllUser();
   console.log("All Users Deleted!");
 
   for (const user of users) {
-    await UserService.createUser(user);
+    await userService.createUser(user);
   }
   console.log("New Users Inserted!");
 }
 
 export async function deleteUsers() {
-  await UserService.deleteAllUser();
+  await userService.deleteAllUser();
   console.log("All Users Deleted!");
 }

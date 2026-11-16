@@ -1,4 +1,4 @@
-import RepositoryFactory from "../repositories/RepositoryFactory.js";
+import { RepositoryFactory } from "../repositories/RepositoryFactory.js";
 
 class UserService {
   constructor() {
@@ -31,4 +31,4 @@ class UserService {
   }
 }
 
-export default new UserService();
+export const userService = new UserService();

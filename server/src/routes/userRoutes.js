@@ -2,21 +2,22 @@
 import express from "express";
 
 //* Internal Imports *//
-import controllers from "../controllers/index.js";
-
-const { userController } = controllers;
+import {
+  getAllUser,
+  createUser,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+} from "../controllers/userControllers.js";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(userController.getAllUser)
-  .post(userController.createUser);
+router.route("/").get(getAllUser).post(createUser);
 
 router
   .route("/:id")
-  .get(userController.getUserById)
-  .patch(userController.updateUserById)
-  .delete(userController.deleteUserById);
+  .get(getUserById)
+  .patch(updateUserById)
+  .delete(deleteUserById);
 
 export default router;

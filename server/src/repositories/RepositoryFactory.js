@@ -1,9 +1,7 @@
 //* Internal Imports *//
-import mongoRepository from "./mongo/index.js";
+import { MongoUserRepository } from "./mongo/MongoUserRepository.js";
 
-const { MongoUserRepository } = mongoRepository;
-
-class RepositoryFactory {
+export class RepositoryFactory {
   static getUserRepository() {
     const dbType = process.env.DB_TYPE || "mongo";
 
@@ -14,5 +12,3 @@ class RepositoryFactory {
     }
   }
 }
-
-export default RepositoryFactory;

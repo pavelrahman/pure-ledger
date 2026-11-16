@@ -1,4 +1,4 @@
-class UserRepositoryInterface {
+export class UserRepositoryInterface {
   async create(data) {
     throw new Error("Method 'create()' must be implemented.");
   }
@@ -15,5 +15,3 @@ class UserRepositoryInterface {
     throw new Error("Method 'deleteById()' must be implemented.");
   }
 }
-
-export default UserRepositoryInterface;
